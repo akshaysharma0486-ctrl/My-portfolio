@@ -263,3 +263,16 @@ html{scroll-behavior:auto}@media(prefers-reduced-motion:reduce){.scroll-word{opa
 @media(prefers-reduced-motion:reduce){.testimonial-content.changing{animation:none}.testimonial-quote .scroll-word,.testimonial-selectors img{transition:none}}
 
 .testimonial-quotation .scroll-word{opacity:1!important}
+
+/* Six project previews form an even ring around the featured project. */
+@media(min-width:651px){
+ .wheel-choice:nth-of-type(2){top:0;bottom:auto;left:14%;right:auto}
+ .wheel-choice:nth-of-type(3){top:0;bottom:auto;right:14%;left:auto}
+ .wheel-choice:nth-of-type(4){top:40%;bottom:auto;right:0;left:auto}
+ .wheel-choice:nth-of-type(5){bottom:0;top:auto;right:14%;left:auto}
+ .wheel-choice:nth-of-type(6){bottom:0;top:auto;left:14%;right:auto}
+ .wheel-choice:nth-of-type(7){top:40%;bottom:auto;left:0;right:auto;--float-delay:-5s}
+}
+#dialog-link[hidden]{display:none}
+
+.wheel-choice small{display:block;font-size:12px;line-height:1.4;letter-spacing:1px;color:var(--orange);margin-top:4px}
