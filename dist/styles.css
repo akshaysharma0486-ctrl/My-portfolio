@@ -276,3 +276,4 @@ html{scroll-behavior:auto}@media(prefers-reduced-motion:reduce){.scroll-word{opa
 #dialog-link[hidden]{display:none}
 
 .wheel-choice small{display:block;font-size:12px;line-height:1.4;letter-spacing:1px;color:var(--orange);margin-top:4px}
+.wheel-feature-category[hidden]{display:none}
