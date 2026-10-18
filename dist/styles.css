@@ -277,3 +277,18 @@ html{scroll-behavior:auto}@media(prefers-reduced-motion:reduce){.scroll-word{opa
 
 .wheel-choice small{display:block;font-size:12px;line-height:1.4;letter-spacing:1px;color:var(--orange);margin-top:4px}
 .wheel-feature-category[hidden]{display:none}
+
+/* Seven choices: three across the top, two sides, and two below. */
+@media(min-width:651px){
+ .project-wheel[data-project-count="7"]{height:740px}
+ .project-wheel[data-project-count="7"] .wheel-choice{width:20%}
+ .project-wheel[data-project-count="7"] .wheel-choice:nth-of-type(2){top:0;bottom:auto;left:4%;right:auto}
+ .project-wheel[data-project-count="7"] .wheel-choice:nth-of-type(3){top:0;bottom:auto;left:40%;right:auto}
+ .project-wheel[data-project-count="7"] .wheel-choice:nth-of-type(4){top:0;bottom:auto;left:auto;right:4%}
+ .project-wheel[data-project-count="7"] .wheel-choice:nth-of-type(5){top:40%;bottom:auto;left:auto;right:0}
+ .project-wheel[data-project-count="7"] .wheel-choice:nth-of-type(6){top:auto;bottom:0;left:auto;right:14%}
+ .project-wheel[data-project-count="7"] .wheel-choice:nth-of-type(7){top:auto;bottom:0;left:14%;right:auto}
+ .project-wheel[data-project-count="7"] .wheel-choice:nth-of-type(8){top:40%;bottom:auto;left:0;right:auto;--float-delay:-6s}
+}
+@media(min-width:651px) and (max-width:1050px){.project-wheel[data-project-count="7"]{height:660px}}
+@media(max-width:650px){.project-wheel[data-project-count="7"] .wheel-choice:last-of-type{grid-column:1/-1}.project-wheel[data-project-count="7"] .wheel-choice:last-of-type img{height:155px}}
