@@ -200,7 +200,8 @@ const loader = document.querySelector('.experience-loader');
 const enterButton = document.querySelector('.loader-enter');
 const loaderSound = document.querySelector('.loader-sound');
 const chrome = [...document.querySelectorAll('main, .skip-link, .corner-mark, .corner-nav, .social-rail, .menu-button, .music-switch')];
-chrome.forEach(element => element.inert = true);
+const returningToPortfolio = document.documentElement.classList.contains('returning-to-portfolio');
+chrome.forEach(element => element.inert = !returningToPortfolio);
 let startWithMusic = true, entering = false, assetReady = false;
 loaderSound.addEventListener('click', () => {
   startWithMusic = !startWithMusic;
@@ -229,10 +230,21 @@ function updateLoading(now) {
     enterButton.focus({preventScroll:true});
   } else requestAnimationFrame(updateLoading);
 }
-requestAnimationFrame(updateLoading);
+if (returningToPortfolio) {
+  loader.hidden = true;
+  document.body.classList.remove('is-loading');
+  document.body.classList.add('experience-ready');
+  try { sessionStorage.setItem('portfolio-entered', '1'); } catch {}
+  requestAnimationFrame(() => {
+    const target = document.getElementById(location.hash.slice(1));
+    if (target) target.scrollIntoView({behavior:'instant',block:'start'});
+    queueMirror();
+  });
+} else requestAnimationFrame(updateLoading);
 enterButton.addEventListener('click', event => {
   if (entering) return;
   entering = true;
+  try { sessionStorage.setItem('portfolio-entered', '1'); } catch {}
   window.scrollTo({top:0,left:0,behavior:'instant'});
   loader.style.setProperty('--wipe-scale', Math.ceil(Math.hypot(innerWidth, innerHeight) / 20) + 2);
   setMusic(startWithMusic);
